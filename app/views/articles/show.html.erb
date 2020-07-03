@@ -1,3 +1,8 @@
 <h1>show article <%= @article.id %></h1>
 <p><strong>titile:</strong><%= @article.title %></p>
 <p><strong>description</strong> <%= @article.description %> </p>
+
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Delete', article_path(@article), method: :delete,  data: { confirm: "are you sure?" } %> |
+<%= link_to 'Return of the list of articles', articles_path %>
