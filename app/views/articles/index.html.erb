@@ -2,7 +2,7 @@
 <table>
     <thead>
         <tr>
-            <th>title<</th>
+            <th>title</th>
             <th>description</th>
             <th>actions</th>
         </tr>
@@ -13,8 +13,12 @@
             <tr>
                 <th><%= article.title %></th>
                 <th><%= article.description %></th>
-                <th>action</th>
+                <th><%= link_to 'show', article_path(article) %></th>
+                <th><%= link_to 'edit', edit_article_path(article) %></th>
+                <th><%= link_to 'Delete', article_path(article), method: :delete  %></th> <!-- #article recconait que c'est article.id -->
             </tr>
         <% end %>
     </tbody>
 </table>
+
+<%= link_to 'new', new_article_url %>
