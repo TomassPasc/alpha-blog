@@ -6,6 +6,7 @@
             <div class="card text-center shadow mb-5 bg-white rounded">
                 <div class="card-header font-italic">
                     by <%= @article.user.username if @article.user %>
+                    <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
                 </div>
                 <div class="card-body">
                     <div class="card-text text-left"><%= simple_format(@article.description) %></div>       
@@ -13,8 +14,7 @@
                     <%= link_to "Delete", article_path(@article), method: :delete,  data: { confirm: "are you sure?" }, class:"btn btn-outline-danger" %>
                 </div>
                 <div class="card-footer text-muted">
-                    <small><%= time_ago_in_words(@article.created_at)%> ago,
-                    <%= time_ago_in_words(@article.updated_at)%> ago </small>
+                    <small><%= time_ago_in_words(@article.created_at)%> ago</small>
                 </div>
             </div>
         </div>
