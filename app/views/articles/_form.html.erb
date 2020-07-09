@@ -11,11 +11,21 @@
           </div>
         </div>
       <div class="form-group row">
-          <%= f.label :description, class:"col-2 col-form-label text-light" %>
-          <div class="col-10">
-            <%= f.text_area :description, rows: 6, class:"form-control shadow rounded", placeholder: "description" %>
-          </div>
+        <%= f.label :description, class:"col-2 col-form-label text-light" %>
+        <div class="col-10">
+          <%= f.text_area :description, rows: 6, class:"form-control shadow rounded", placeholder: "description" %>
         </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :category, class:"col-2 col-form-label text-light" %>
+        <div class="col-10">
+            <%= f.collection_select(:category_ids, Category.all, :id, :name,
+            { prompt: "select one or many categories (can be empty):"}, { multiple: true, size: 3, class:"custom-select shadow rounded"}) %>
+        </div>
+      </div>
+
+
+
         <div class="form-group row justify-content-center">
           <%= f.submit class:"btn btn-outline-light btn-lg" %>
         </div>
